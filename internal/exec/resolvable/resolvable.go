@@ -290,11 +290,7 @@ func (b *execBuilder) makeFieldExec(typeName string, f *schema.Field, m reflect.
 	}
 
 	hasArgsMap := len(in) > 0 && reflect.ValueOf(in[0]).Kind() == reflect.Ptr
-	if len(in) > 0 {
-		println("argsmap type", reflect.ValueOf(in[0]).Kind() == reflect.Ptr)
-	}
 	if hasArgsMap {
-		println("has-ing argsmap")
 		in = in[1:]
 	}
 
