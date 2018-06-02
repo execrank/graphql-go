@@ -117,12 +117,15 @@ func applySelectionSet(r *Request, e *resolvable.Object, sels []query.Selection)
 				fe := e.Fields[field.Name.Name]
 
 				var args map[string]interface{}
-				var packedArgs reflect.Value
-				if fe.ArgsPacker != nil {
+				if len(field.Arguments) > 0 {
 					args = make(map[string]interface{})
 					for _, arg := range field.Arguments {
 						args[arg.Name.Name] = arg.Value.Value(r.Vars)
 					}
+				}
+
+				var packedArgs reflect.Value
+				if fe.ArgsPacker != nil {
 					var err error
 					packedArgs, err = fe.ArgsPacker.Pack(args)
 					if err != nil {

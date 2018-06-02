@@ -271,16 +271,8 @@ func (b *execBuilder) makeFieldExec(typeName string, f *schema.Field, m reflect.
 		in = in[1:]
 	}
 
-	var argsPacker *packer.StructPacker
-	if len(f.Args) > 0 {
-		if len(in) == 0 {
-			return nil, fmt.Errorf("must have parameter for field arguments")
-		}
-		var err error
-		argsPacker, err = b.packerBuilder.MakeStructPacker(f.Args, in[0])
-		if err != nil {
-			return nil, err
-		}
+	hasArgsMap := len(in) > 0 && reflect.ValueOf(in[0]).Kind() == reflect.Ptr
+	if hasArgsMap {
 		in = in[1:]
 	}
 
@@ -289,8 +281,13 @@ func (b *execBuilder) makeFieldExec(typeName string, f *schema.Field, m reflect.
 		in = in[1:]
 	}
 
-	hasArgsMap := len(in) > 0 && reflect.ValueOf(in[0]).Kind() == reflect.Ptr
-	if hasArgsMap {
+	var argsPacker *packer.StructPacker
+	if len(in) > 0 && len(f.Args) > 0 {
+		var err error
+		argsPacker, err = b.packerBuilder.MakeStructPacker(f.Args, in[0])
+		if err != nil {
+			return nil, err
+		}
 		in = in[1:]
 	}
 
