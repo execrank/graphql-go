@@ -1,15 +1,15 @@
 # graphql-go
 
-[![Sourcegraph](https://sourcegraph.com/github.com/graph-gophers/graphql-go/-/badge.svg)](https://sourcegraph.com/github.com/graph-gophers/graphql-go?badge)
-[![Build Status](https://semaphoreci.com/api/v1/graph-gophers/graphql-go/branches/master/badge.svg)](https://semaphoreci.com/graph-gophers/graphql-go)
-[![GoDoc](https://godoc.org/github.com/graph-gophers/graphql-go?status.svg)](https://godoc.org/github.com/graph-gophers/graphql-go)
+[![Sourcegraph](https://sourcegraph.com/github.com/execrank/graphql-go/-/badge.svg)](https://sourcegraph.com/github.com/graph-gophers/graphql-go?badge)
+[![Build Status](https://semaphoreci.com/api/v1/execrank/graphql-go/branches/master/badge.svg)](https://semaphoreci.com/graph-gophers/graphql-go)
+[![GoDoc](https://godoc.org/github.com/execrank/graphql-go?status.svg)](https://godoc.org/github.com/graph-gophers/graphql-go)
 
 ## Status
 
 ### Update: March 1, 2018
 
 This project has transferred ownership from `github.com/neelance/graphql-go` to
-`github.com/graph-gophers/graphql-go`, which will enable us to maintain and evolve the
+`github.com/execrank/graphql-go`, which will enable us to maintain and evolve the
 library [@neelance](https://github.com/neelance) created, and let him focus on WebAssembly / Go development.
 
 I'm super grateful to @neelance for all his work blazing the trail
