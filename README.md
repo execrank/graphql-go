@@ -50,9 +50,9 @@ A resolver must have one method for each field of the GraphQL type it resolves. 
 The method has up to four arguments:
 
 - Optional `context.Context` argument.
-- Mandatory `*struct { ... }` argument if the corresponding GraphQL field has arguments. The names of the struct fields have to be [exported](https://golang.org/ref/spec#Exported_identifiers) and have to match the names of the GraphQL arguments in a non-case-sensitive way.
+- Mandatory `map[string]interface{}` argument if the corresponding GraphQL field has arguments that represents the raw map of arguments - as they also appear in `SelectedField`. This is useful when you need to know whether a property has actually been set versus being a type's zero value, which is impossible with the struct argument.
 - Optional `[]selected.SelectedField` argument to receive the tree of selected subfields in the GraphQL query (useful for preloading of database relations)
-- Optional `map[string]interface{}` argument that represents the raw map of arguments - as they also appear in `SelectedField`. This is useful when you need to know whether a property has actually been set versus being a type's zero value, which is impossible with the struct argument.
+- Optional `*struct { ... }` argument. The names of the struct fields have to be [exported](https://golang.org/ref/spec#Exported_identifiers) and have to match the names of the GraphQL arguments in a non-case-sensitive way.
 
 The method has up to two results:
 
