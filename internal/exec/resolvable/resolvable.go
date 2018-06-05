@@ -271,7 +271,7 @@ func (b *execBuilder) makeFieldExec(typeName string, f *schema.Field, m reflect.
 		in = in[1:]
 	}
 
-	hasArgsMap := len(in) > 0 && reflect.ValueOf(in[0]).Kind() == reflect.Ptr
+	hasArgsMap := len(in) > 0 && reflect.ValueOf(in[0]).Kind() == reflect.Ptr && in[0] != selectedType
 	if hasArgsMap {
 		in = in[1:]
 	}

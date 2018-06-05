@@ -100,7 +100,7 @@ func (r *Type) Description() *string {
 	return nil
 }
 
-func (r *Type) Fields(args *struct{ IncludeDeprecated bool }) *[]*Field {
+func (r *Type) Fields(argsMap map[string]interface{}, args *struct{ IncludeDeprecated bool }) *[]*Field {
 	var fields schema.FieldList
 	switch t := r.typ.(type) {
 	case *schema.Object:
@@ -151,7 +151,7 @@ func (r *Type) PossibleTypes() *[]*Type {
 	return &l
 }
 
-func (r *Type) EnumValues(args *struct{ IncludeDeprecated bool }) *[]*EnumValue {
+func (r *Type) EnumValues(argsMap map[string]interface{}, args *struct{ IncludeDeprecated bool }) *[]*EnumValue {
 	t, ok := r.typ.(*schema.Enum)
 	if !ok {
 		return nil
